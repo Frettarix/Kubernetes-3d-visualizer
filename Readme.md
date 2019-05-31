@@ -24,6 +24,8 @@ Todo:
 -Add more interaction
 -Add more 3d items
 
+I am not an expert on JS or CSS, but I do like to build things.
+
 #### Thank you..
 Threejs as this app makes use of:
 https://threejs.org/docs/#examples/renderers/CSS3DRenderer
