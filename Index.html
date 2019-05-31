@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>K8s dashboard - HOF CICD Team</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+	    <script src="js/jsonpath-0.8.0.js"></script>
+		<script src="js/three.js"></script>
+		<script src="js/TrackballControls.js"></script>
+		<script src="js/CSS3DRenderer.js"></script>
+		<script src="js/nodes.js"></script>
+		<script src="js/pods.js"></script>
+		<script src="js/initreload.js"></script>
+
+		<div id="info"><a href="" target="_blank" rel="noopener"></a> Kubernetes-3d-visualizer  <a href="https://github.com/reneschoonrok" target="_blank" rel="noopener">https://github.com/reneschoonrok</a>.</div>
+		<div id="container"></div>
+		<div id="menu">
+			<button id="delete" class="button1">Delete</button>
+			<button id="openspec"  class="button1">Open spec</button>
+			<button id="addreplica"  class="button1">Replica +</button>
+			<button id="delreplica"  class="button1">Replica -</button>
+			<button id="refresh"  class="button1">Refresh</button>
+		</div>
+
+
+		<div class="btn-group" id="mymenu">
+			<button id="detail0" class="button button3"></button>
+			<button id="detail1" class="button"></button>
+			<button id="detail2" class="button"></button>
+			<button id="detail3" class="button"></button>
+			<button id="detail4" class="button"></button>
+			<button id="detail5" class="button"></button>
+			<button id="detail6" class="button"></button>
+			<button id="detail7" class="button"></button>
+			<button id="detail8" class="button"></button>
+			<button id="detail9" class="button"></button>
+			<button id="detail12" class="button button3"></button>
+			<button id="detail10" class="button button4"></button>
+			<button id="detail11" class="button button2"></button>
+		</div>
+
+
+		<script>
+			
+			var resourcetypes = [
+				"Nodes", "", "rgba(36, 61, 114, 0.8)", 1, 1, " ",
+				"Namespaces", "", "rgba(0,127,127,0.8)", 1, 2, "",
+				"Pods", "", "rgba(147, 232, 44,0.8)", 1, 3, " "
+				
+			];
+			
+			var namespaces = [
+				"kube-system", "namespace", "rgba(0,127,127,0.3)", 5, 2, " ",
+				"default", "namespace", "rgba(0,127,127,0.3)", 8, 2, " ",
+				"dev", "namespace", "rgba(0,127,127,0.3)", 11, 2, " ",
+				"tst", "namespace", "rgba(0,127,127,0.3)", 14, 2, " "
+			];
+
+			var nodes = [];
+			var podinfo = [];
+			var camera, scene, renderer;
+			var controls;
+			var mesh;
+
+			var objects = [];
+			var targets = { podinfo: [],  nodes: [], resourcetypes: [],  namespaces: [] };
+			var image = document.createElement( 'img' );
+			var mynamespace = 'kube-system';
+
+			init();
+			animate();
+
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				render();
+			}
+
+			function animate() {
+				requestAnimationFrame( animate );
+				render();
+				controls.update();
+			}
+			
+			function render() {
+				renderer.render( scene, camera );
+			}
+			
+			var intervalID = window.setInterval(myRefresh, 1000);
+
+			function myRefresh() {
+		
+				reload();
+				loadnodes();
+				loadinfo();
+				podinfo.splice(0, podinfo.length)
+			}
+
+		</script>
+	</body>
+</html>

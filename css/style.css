@@ -1,0 +1,343 @@
+			html, body {
+				height: 100%;
+			}
+
+			body {
+				background-color: #000000;
+				margin: 0;
+				font-family: Helvetica, sans-serif;;
+				overflow: hidden;
+			}
+
+			a {
+				color: #ffffff;
+			}
+
+			#info {
+				position: absolute;
+				width: 100%;
+				color: #ffffff;
+				padding: 5px;
+				font-family: Monospace;
+				font-size: 13px;
+				font-weight: bold;
+				text-align: left;
+				z-index: 1;
+			}
+
+			#menu {
+				position: absolute;
+				bottom: 20px;
+				width: 100%;
+				text-align: center;
+			}
+
+            			.button1 {
+
+            			    color: rgba(0,0,0,0.75);
+            				outline: 1px solid rgba(0,0,0,0.75);
+            								color: rgba(0,0,0,1);
+                            				background: transparent;
+                            				border: 0px;
+                            				padding: 3px 3px;
+                            				cursor: pointer;
+                        }
+
+            			button1:hover {
+            				background-color: rgba(0,0,0,0.5);
+            			}
+            			button1:active {
+            				color: #000000;
+            				background-color: rgba(0,0,0,0.75);
+            			}
+
+
+			.element {
+				width: 400px;
+				height: 160px;
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+				border: 1px solid rgba(127,255,255,0.25);
+				text-align: left;
+				cursor: default;
+			}
+			
+			
+			.infoelement {
+				width: 700px;
+				height: 250px;
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.3);
+				border: 1px solid rgba(127,255,255,0.25);
+				text-align: left;
+				cursor: default;
+			}
+				.infoelement .description3 {
+					position: absolute;
+					top: 5px;
+					left: 10px;
+					right: 0px;
+					font-size: 35px;
+					font-weight: bold;
+					color: rgba(255,255,255,0.75);
+					text-shadow: 0 0 10px rgba(0,255,255,0.95)
+				}
+				.infoelement .description2 {
+					position: absolute;
+					top: 55px;
+					left: 15px;
+					font-size: 20px;
+					color: rgba(255, 255, 0,1);
+				}
+				
+				.infoelement .description {
+					position: absolute;
+					top: 80px;
+					left: 15px;
+					font-size: 20px;
+					color: rgba(255, 255, 0,1);
+				}
+
+			.element:hover {
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+				border: 1px solid rgba(127,255,255,0.75);
+			}
+
+				.element .number {
+					position: absolute;
+					top: 10px;
+					right: 20px;
+					font-size: 15px;
+					color: rgba(102, 255, 51,1);
+				}
+				
+				.element .numberbad {
+					position: absolute;
+					top: 100px;
+					left: 230px;
+					font-size: 15px;
+					color: rgba(255, 0, 0,1);
+				}
+				
+				.element .numbergood {
+					position: absolute;
+					top: 100px;
+					left: 230px;
+					font-size: 15px;
+					color: rgba(255, 255, 0,1);
+				}
+
+			   .element .numberbest {
+                     position: absolute;
+                     top: 100px;
+                     left: 230px;
+                     font-size: 15px;
+                     color: rgba(102, 255, 51,1);
+                }
+
+				.element .restarts {
+                	position: absolute;
+                	top: 90px;
+                	left: 230px;
+                	font-size: 15px;
+                	color: rgba(102, 255, 51,1);
+                }
+
+				.element .podbad {
+                	position: absolute;
+                	top: 80px;
+   					left: 230px;
+                    font-size: 15px;
+                	color: rgba(255, 0, 0,1);
+                }
+
+                .element .podgood {
+                	position: absolute;
+                	top: 80px;
+                    left: 230px;
+                	font-size: 15px;
+                	color: rgba(102, 255, 51,1);
+                }
+
+				.element .details {
+					position: absolute;
+					top: 120px;
+					left: 230px;
+					font-size: 15px;
+					color: rgba(102, 255, 51,1);
+				}
+
+
+
+				.element .symbol {
+					position: absolute;
+					top: 5px;
+					left: 10px;
+					right: 0px;
+					font-size: 35px;
+					font-weight: bold;
+					color: rgba(255,255,255,0.75);
+					text-shadow: 0 0 10px rgba(0,255,255,0.95);
+				}
+				
+				.element .description {
+					width: 600px;
+					height: 250px;
+					position: absolute;
+					top: 5px;
+					left: 10px;
+					right: 0px;
+					font-size: 35px;
+					font-weight: bold;
+					color: rgba(255,255,255,0.75);
+					text-shadow: 0 0 10px rgba(0,255,255,0.95);
+				}
+				
+				.element .delete {
+					width: 60px;
+					height: 25px;
+					position: absolute;
+					bottom: 5px;
+					left: 10px;
+					right: 0px;
+					font-size: 20px;
+					font-weight: bold;
+					color: rgba(255,255,255,0.75);
+					text-shadow: 0 0 10px rgba(0,255,255,0.95);
+				}
+				
+				.element .delete:hover {
+					box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+					border: 1px solid rgba(127,255,255,0.75);
+				}
+
+
+
+			.resourcetypeelement {
+				width: 450px;
+				height: 160px;
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+				border: 1px solid rgba(127,255,255,0.25);
+				text-align: center;
+				cursor: default;
+			}
+
+			.resourcetypeelement:hover {
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+				border: 1px solid rgba(127,255,255,0.75);
+			}
+
+				.resourcetypeelement .number {
+					position: absolute;
+					top: 10px;
+					right: 20px;
+					font-size: 12px;
+					color: rgba(127,255,255,0.75);
+				}
+
+				.resourcetypeelement .symbol {
+					position: absolute;
+					top: 40px;
+					left: 0px;
+					right: 0px;
+					font-size: 60px;
+					font-weight: bold;
+					color: rgba(255,255,255,0.75);
+					text-shadow: 0 0 10px rgba(0,255,255,0.95);
+				}
+
+				.resourcetypeelement .details {
+					position: absolute;
+					bottom: 15px;
+					left: 0px;
+					right: 0px;
+					font-size: 12px;
+					color: rgba(127,255,255,0.75);
+				}
+
+			#mymenu {
+            				position: absolute;
+            				bottom: 20px;
+            				width: 30%;
+            				left: 20px;
+            				text-align: left;
+            				//color: rgba(127,255,255,0.75);
+            }
+            .btn-group button {
+                display: block; /* Make the buttons appear below each other */
+
+                text-align: left;
+                //border-style: groove;
+
+                // color: rgba(127,255,255,0.75);
+                //outline: 1px solid rgba(214, 255, 35,0.75);
+            }
+
+
+			.button {
+				color: rgba(255, 248, 63,1);
+				background: transparent;
+				border: 0px;
+				padding: 3px 3px;
+				cursor: pointer;
+			}
+
+			.button2 {
+            	color: rgba(249, 7, 7,1);
+            	background: transparent;
+            	border: 1px;
+            	padding: 5px 5px;
+                cursor: pointer;
+                left: 15px;
+            	//outline: 1px solid rgba(214, 255, 35,0.75);
+            	padding: 5px 3px;
+            	}
+
+            	.button3 {
+                  color: rgba(0, 0, 0,0);
+                  background: transparent;
+                  border: 1px;
+                  padding: 5px 5px;
+                  cursor: pointer;
+                  left: 15px;
+                  //outline: 1px solid rgba(0, 0, 0,0.75);
+                  padding: 5px 3px;
+                 }
+			.button4 {
+            	color: rgba(1, 250, 7,1);
+            	background: transparent;
+            	border: 1px;
+            	padding: 5px 5px;
+                cursor: pointer;
+                left: 15px;
+            	//outline: 1px solid rgba(214, 255, 35,0.75);
+            	padding: 5px 3px;
+            	}
+
+
+			button:hover {
+				background-color: rgba(0,255,255,0.5);
+			}
+			button:active {
+				color: #000000;
+				background-color: rgba(0,255,255,0.75);
+			}
+			
+			podbutton {
+				position: absolute;
+				top: 55px;
+				left: 15px;
+				font-size: 20px;
+				width: 150px;
+				height: 600px;
+				color: rgba(127,255,255,0.75);
+				background: transparent;
+				cursor: pointer;
+			}
+			podbutton:hover {
+				background-color: rgba(0,255,255,0.5);
+			}
+			podbutton:active {
+				color: #000000;
+				background-color: rgba(0,255,255,0.75);
+			}
+
+
