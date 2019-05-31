@@ -1,7 +1,8 @@
 # Kubernetes-3d-vizualizer
 
-This project renders your Kubernetes or minikube cluster in 3d. You can delete pods, and zoom in on details/specs. <br/>
-It is an early version. I will add more functionality (if you have a request, just create a comment or gitlab issue).
+This project renders your Kubernetes cluster in 3d. You can delete pods, and zoom in on details/specs. <br/>
+Minikube is also working. <br/>
+It is an early version. I will add more functionality (if you have a request, just create a comment or gitlab issue). <br/>
 
 ## Prerequisites
 
@@ -16,7 +17,7 @@ It is an early version. I will add more functionality (if you have a request, ju
 
 Start the HTML.
 
-Todo:
+Todo:  <br/>
 -Add services to rendering <br/>
 -Autodiscovery option for namespaces (make this an option) <br/>
 -Investigate putting this in a docker container <br/>
