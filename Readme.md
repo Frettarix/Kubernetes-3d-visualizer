@@ -4,9 +4,9 @@ This project renders your Kubernetes cluster in 3d: (Nodes, Pods, Namespaces, De
 
 You can also interact with the cluster: delete pods, increase/decrease replicas and open specs. <br/>
 
-![alt text](/screen.jpg)
-
 Also working with Minikube. <br/>
+
+![](/k8s.gif)
 
 I will add more functionality and cleanup code (if you have a request, just create a comment or gitlab issue). <br/>
 
@@ -17,7 +17,7 @@ I will add more functionality and cleanup code (if you have a request, just crea
 -Run chrome with some extra flags to prevent CORS errors.<br/>
  ("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security --user-data-dir=~/chromeTemp")
 
-![](/k8s.gif)
+
 
 ### Getting Started
 
