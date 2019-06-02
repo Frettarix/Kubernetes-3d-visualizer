@@ -1,10 +1,14 @@
 # Kubernetes-3d-vizualizer
 
-This project renders your Kubernetes cluster in 3d. You can delete pods, and zoom in on details/specs. <br/>
+This project renders your Kubernetes cluster in 3d: (Nodes, Pods, Namespaces, Deployments, Replicasets.  <br/>
+
+You can also interact with the cluster: delete pods, increase/decrease replicas and open specs. <br/>
 
 Also working with Minikube. <br/>
 
-It is an early version. I will add more functionality (if you have a request, just create a comment or gitlab issue). <br/>
+![](/k8s.gif)
+
+I will add more functionality and cleanup code (if you have a request, just create a comment or gitlab issue). <br/>
 
 ## Prerequisites
 
@@ -13,14 +17,14 @@ It is an early version. I will add more functionality (if you have a request, ju
 -Run chrome with some extra flags to prevent CORS errors.<br/>
  ("C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security --user-data-dir=~/chromeTemp")
 
-![](/k8s.gif)
+
 
 ### Getting Started
 
 Start the HTML.
 
-Done:
-2-6-2019: Replica's and deployments added. Also buttons for increasing and decreasing replica's done.
+Update on master:
+2-6-2019: Replica's, deployments and logo added. Also buttons for increasing and decreasing replica's added.
 
 Todo:  <br/>
 -Add services to rendering <br/>
@@ -32,9 +36,12 @@ Todo:  <br/>
 
 I am not an expert on JS or CSS, but I do like to build things.
 
-#### Thank you..
+#### Credits to..
 Threejs as this app makes use of:
 https://threejs.org/docs/#examples/renderers/CSS3DRenderer
 
 Based on an example from:
 https://threejs.org/examples/css3d_periodictable.html
+
+If you have an idea on dockerizing this then let me know (kubectl sidecar?)!
+Also I have been experimenting with adding GL objects, but did not manage with full functionality (needs seccond GL renderer).

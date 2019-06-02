@@ -47,6 +47,7 @@ function loadinfo() {
   }
 };
 
+
     for ( var i = 0; i < resourcetypes.length; i += 6 ) {
 
         var resourcetype = document.createElement( 'div' );
