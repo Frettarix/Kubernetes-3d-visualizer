@@ -13,6 +13,9 @@
 		<script src="js/CSS3DRenderer.js"></script>
 		<script src="js/nodes.js"></script>
 		<script src="js/pods.js"></script>
+
+		<script src="js/replicasets.js"></script>
+		<script src="js/deployments.js"></script>
 		<script src="js/initreload.js"></script>
 
 		<div id="info"><a href="" target="_blank" rel="noopener"></a> Kubernetes-3d-visualizer  <a href="https://github.com/reneschoonrok" target="_blank" rel="noopener">https://github.com/reneschoonrok</a>.</div>
@@ -40,33 +43,41 @@
 			<button id="detail12" class="button button3"></button>
 			<button id="detail10" class="button button4"></button>
 			<button id="detail11" class="button button2"></button>
+			<button id="detail13" class="button button4"></button>
+			<button id="detail14" class="button button2"></button>
 		</div>
-
 
 		<script>
 			
 			var resourcetypes = [
-				"Nodes", "", "rgba(36, 61, 114, 0.8)", 1, 1, " ",
-				"Namespaces", "", "rgba(0,127,127,0.8)", 1, 2, "",
-				"Pods", "", "rgba(147, 232, 44,0.8)", 1, 3, " "
-				
+				"Nodes", "", "rgba(36, 61, 114, 0.4)", 1, 1, " ",
+				"Namespaces", "", "rgba(0,127,127,0.4)", 1, 2, "",
+				"Pods", "", "rgba(147, 232, 44,0.4)", 1, 3, " ",
+				" ", "", "rgba(147, 232, 44,0.4)", 1, 4, " ",
+				"Deployments", "", "rgba(200, 7, 200,0.4)", 1, 5, " ",
+				" ", "", "rgba(200, 7, 200,0.4)", 1, 6, " ",
+				"Replicasets", "", "rgba(56, 124, 52,0.4)", 1, 7, " ",
+				" ", "", "rgba(56, 124, 52,0.4)", 1, 8, " "
 			];
 			
 			var namespaces = [
-				"kube-system", "namespace", "rgba(0,127,127,0.3)", 5, 2, " ",
-				"default", "namespace", "rgba(0,127,127,0.3)", 8, 2, " ",
-				"dev", "namespace", "rgba(0,127,127,0.3)", 11, 2, " ",
-				"tst", "namespace", "rgba(0,127,127,0.3)", 14, 2, " "
+				"kube-system", "namespace", "rgba(0,127,127,0.2)", 5, 2, " ",
+				"default", "namespace", "rgba(0,127,127,0.2)", 8, 2, " ",
+				"dev", "namespace", "rgba(0,127,127,0.2)", 11, 2, " ",
+				"tst", "namespace", "rgba(0,127,127,0.2)", 14, 2, " "
 			];
 
 			var nodes = [];
 			var podinfo = [];
+			var replicaset = [];
+			var deployment = [];
 			var camera, scene, renderer;
 			var controls;
 			var mesh;
+			var bcolorchanger = 0;
 
 			var objects = [];
-			var targets = { podinfo: [],  nodes: [], resourcetypes: [],  namespaces: [] };
+			var targets = { podinfo: [],  nodes: [], resourcetypes: [],  namespaces: [], replicaset: [], deployment: [] };
 			var image = document.createElement( 'img' );
 			var mynamespace = 'kube-system';
 
@@ -74,6 +85,7 @@
 			animate();
 
 			function onWindowResize() {
+
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
 				renderer.setSize( window.innerWidth, window.innerHeight );
@@ -81,13 +93,27 @@
 			}
 
 			function animate() {
+
 				requestAnimationFrame( animate );
+
 				render();
 				controls.update();
+
 			}
 			
 			function render() {
+
 				renderer.render( scene, camera );
+			//cube.rotation.x += 0.01;
+//cube.rotation.y = 6.01;
+//cube.rotation.z += 0.1;
+//cube.rotation.set(-0.1,0.5,0);
+				//sceneGl.children[2].rotation.y += 0.04;
+
+				//sceneGl.children[2].rotation.set(-0.1,0.5,0);
+    //scene.cube1.rotation.x += 0.05;
+    //scene.cube1.rotation.y += 0.05;
+				rendererGl.render(sceneGl, camera);
 			}
 			
 			var intervalID = window.setInterval(myRefresh, 1000);
@@ -97,7 +123,12 @@
 				reload();
 				loadnodes();
 				loadinfo();
+
+				loadreplicasets();
+				loaddeployments();
 				podinfo.splice(0, podinfo.length)
+				replicaset.splice(0, replicaset.length)
+				deployment.splice(0, deployment.length)
 			}
 
 		</script>
