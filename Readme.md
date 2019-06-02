@@ -1,6 +1,6 @@
 # Kubernetes-3d-vizualizer
 
-This project renders your Kubernetes cluster in 3d: (Nodes, Pods, Namespaces, Deployments, Replicasets.  <br/>
+This project renders your Kubernetes cluster in 3d: (Nodes, Pods, Namespaces, Deployments, Replicasets).  <br/>
 
 You can also interact with the cluster: delete pods, increase/decrease replicas and open specs. <br/>
 
