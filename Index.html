@@ -81,6 +81,12 @@
 			var image = document.createElement( 'img' );
 			var mynamespace = 'kube-system';
 
+			var image = document.createElement('img');
+						  image.src = 'kube.png';
+	      var objectlogo = new THREE.CSS3DSprite(image.cloneNode());
+
+
+
 			init();
 			animate();
 
@@ -103,17 +109,15 @@
 			
 			function render() {
 
-				renderer.render( scene, camera );
-			//cube.rotation.x += 0.01;
-//cube.rotation.y = 6.01;
-//cube.rotation.z += 0.1;
-//cube.rotation.set(-0.1,0.5,0);
-				//sceneGl.children[2].rotation.y += 0.04;
 
-				//sceneGl.children[2].rotation.set(-0.1,0.5,0);
-    //scene.cube1.rotation.x += 0.05;
-    //scene.cube1.rotation.y += 0.05;
-				rendererGl.render(sceneGl, camera);
+
+
+			      scene.add(objectlogo);
+
+			      objects.push(objectlogo);
+				renderer.render( scene, camera );
+
+				//rendererGl.render(sceneGl, camera);
 			}
 			
 			var intervalID = window.setInterval(myRefresh, 1000);

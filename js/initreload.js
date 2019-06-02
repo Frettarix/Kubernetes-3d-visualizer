@@ -24,7 +24,7 @@ function reload() {
 function init() {
 
     camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
-    camera.position.z = 3000;
+    camera.position.z = 6000;
 
     scene = new THREE.Scene();
     sceneGl = new THREE.Scene(); //glscene
@@ -39,6 +39,25 @@ function init() {
     // subtle blue
     //var ambientLight = new THREE.AmbientLight(0x000022);
     //sceneGl.add(ambientLight);
+
+
+ image.addEventListener('load', function(event) {
+
+
+			      //-1200, 1020, 50
+			      objectlogo.position.x = 00,
+			        objectlogo.position.y = 1520,
+			        objectlogo.position.z = -500;
+			        objectlogo.rotation.x +=0.01;
+			      scene.add(objectlogo);
+
+			      objects.push(objectlogo);
+
+
+			  }, false);
+
+
+
 
     var boxGeom = new THREE.CubeGeometry(60, 60, 60);//glscene
     var texture = new THREE.TextureLoader().load( 'kube.jpg' );//glscene
@@ -77,6 +96,11 @@ function init() {
     controls.minDistance = 500;
     controls.maxDistance = 6000;
     controls.addEventListener( 'change', render );
+
+
+
+
+
 
 
 
