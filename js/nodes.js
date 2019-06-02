@@ -15,7 +15,7 @@ function loadnodes() {
       for (var i = 0; i < arrayLength; i++) {
          nodes[j] = response7[i];
          nodes[j+1] =response7[i];
-         nodes[j+2] = "rgba(36,41,116,0.2)";
+         nodes[j+2] = "rgba(36, 61, 114,0.1)"; //nodes background color
 
          nodes[j+3] = 5 + (i*3);
          nodes[j+4] = 3 ; //rij links rechts
@@ -77,6 +77,8 @@ function loadnodes() {
                     detail12.innerHTML = jsonPath(response , "$.metadata.selfLink");
                     detail10.innerHTML = 'Open spec';
                     detail11.innerHTML = '';
+                    addreplica.innerHTML = '';
+                    reducereplica.innerHTML = '';
 
                 }
             }

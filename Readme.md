@@ -19,6 +19,9 @@ It is an early version. I will add more functionality (if you have a request, ju
 
 Start the HTML.
 
+Done:
+2-6-2019: Replica's and deployments added. Also buttons for increasing and decreasing replica's done.
+
 Todo:  <br/>
 -Add services to rendering <br/>
 -Autodiscovery option for namespaces (make this an option) <br/>

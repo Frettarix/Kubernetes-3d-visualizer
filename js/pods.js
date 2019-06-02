@@ -22,7 +22,7 @@ function loadinfo() {
     for (var i = 0; i < arrayLength; i++) {
         podinfo[j] = response1[i];
         podinfo[j+1] = "-Restarts: " + response3[i];
-        podinfo[j+2] = "rgba(55,55,55,0.2)";
+        podinfo[j+2] = "rgba(147, 232, 44,0.10)"; //pod background color
 
         if (i < 6) {
           podinfo[j+3] = 5 + (i*3);
@@ -115,7 +115,6 @@ function loadinfo() {
         element.style.backgroundColor = podinfo[ i + 2 ];
 
         element.addEventListener( 'click', function (event) {
-            //open( event.currentTarget.childNodes[2].innerText , "_blank");
             if (event.currentTarget.childNodes[2].id != ""){
                 var deleteobject = 'http://localhost:8001/api/v1/namespaces/'+mynamespace+'/pods/'+ event.currentTarget.childNodes[2].id;
                 var xhttp = new XMLHttpRequest();
@@ -220,6 +219,8 @@ function loadinfo() {
                     detail12.innerHTML = jsonPath(response , "$.metadata.selfLink");
                     detail10.innerHTML = 'Open spec';
                     detail11.innerHTML = 'Delete pod';
+                    detail13.innerHTML = '';
+                    detail14.innerHTML = '';
                 }
             }
 
