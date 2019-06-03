@@ -42,16 +42,16 @@ function init() {
 			  }, false);
 
     var boxGeom = new THREE.CubeGeometry(80, 80, 80);//glscene
-    var texture = new THREE.TextureLoader().load( 'kube1.jpg' );//glscene
+    var texture = new THREE.TextureLoader().load( './img/kube1.jpg' );//glscene
 
     var boxGeom1 = new THREE.CubeGeometry(80, 80, 80);//glscene
-    var texture1 = new THREE.TextureLoader().load( 'kube2.jpg' );//glscene
+    var texture1 = new THREE.TextureLoader().load( './img/kube2.jpg' );//glscene
 
     var boxGeom2 = new THREE.CubeGeometry(80, 80, 80);//glscene
-    var texture2 = new THREE.TextureLoader().load( 'kube3.jpg' );//glscene
+    var texture2 = new THREE.TextureLoader().load( './img/kube3.jpg' );//glscene
 
     var boxGeom3 = new THREE.CubeGeometry(80, 80, 80);//glscene
-    var texture3 = new THREE.TextureLoader().load( 'kube4.jpg' );//glscene
+    var texture3 = new THREE.TextureLoader().load( './img/kube4.jpg' );//glscene
 
 	var material = new THREE.MeshBasicMaterial( { map: texture, opacity: 0.7} );//glscene
 	material.transparent = false;
