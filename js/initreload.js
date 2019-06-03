@@ -24,7 +24,7 @@ function reload() {
 function init() {
 
     camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
-    camera.position.z = 6000;
+    camera.position.z = 4000;
 
     scene = new THREE.Scene();
     sceneGl = new THREE.Scene(); //glscene
@@ -54,26 +54,26 @@ function init() {
     var texture3 = new THREE.TextureLoader().load( './img/kube4.png' );//glscene
 
 	var material = new THREE.MeshBasicMaterial( { map: texture, opacity: 0.7} );//glscene
-	material.transparent = false;
+	material.transparent = true;
 
     var material1 = new THREE.MeshBasicMaterial( { map: texture1, opacity: 0.7} );//glscene
-	material1.transparent = false;
+	material1.transparent = true;
 
 	var material2 = new THREE.MeshBasicMaterial( { map: texture2, opacity: 0.7} );//glscene
-    material2.transparent = false;
+    material2.transparent = true;
 
     var material3 = new THREE.MeshBasicMaterial( { map: texture3, opacity: 0.7} );//glscene
-    material3.transparent = false;
+    material3.transparent = true;
 
 
 	cube = new THREE.Mesh( boxGeom, material );//glscene
-    cube.position.copy(new THREE.Vector3(-1230, 1230, 50));//glscene
+    cube.position.copy(new THREE.Vector3(-1260, 1260, 50));//glscene
 
 	cube1 = new THREE.Mesh( boxGeom1, material1 );//glscene
-    cube1.position.copy(new THREE.Vector3(-1020, 1230, 50));//glscene
+    cube1.position.copy(new THREE.Vector3(-1020, 1260, 50));//glscene
 
     cube2 = new THREE.Mesh( boxGeom2, material2 );//glscene
-    cube2.position.copy(new THREE.Vector3(-1230,1020, 50));//glscene
+    cube2.position.copy(new THREE.Vector3(-1260,1020, 50));//glscene
 
     cube3 = new THREE.Mesh( boxGeom3, material3 );//glscene
     cube3.position.copy(new THREE.Vector3(-1020,1020, 50));//glscene

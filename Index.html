@@ -75,6 +75,7 @@
 			var controls;
 			var mesh;
 			var bcolorchanger = 0;
+			var rotateswitch = 1;
 
 			var objects = [];
 			var targets = { podinfo: [],  nodes: [], resourcetypes: [],  namespaces: [], replicaset: [], deployment: [] };
@@ -108,16 +109,36 @@
 			}
 			
 			function render() {
+			if ((cube.rotation.x < -6.25)&&(rotateswitch == 1))
+			{
+			    rotateswitch = 0;
+			    cube.rotation.y =0;
+			    cube1.rotation.y =0;
+			    cube2.rotation.y =0;
+			    cube3.rotation.y =0;
+			 };
+			 if ((cube.rotation.y < -6.25)&&(rotateswitch == 0))
+			 {
+			    rotateswitch = 1;
+			    cube.rotation.x =0;
+			    cube1.rotation.x =0;
+			    cube2.rotation.x =0;
+			    cube3.rotation.x =0;
 
+			 };
+
+				if (rotateswitch == 1) {
 				  cube.rotation.x -=0.02;
 			      cube1.rotation.x -=0.02;
 			      cube2.rotation.x +=0.02;
 			      cube3.rotation.x +=0.02;
+			    }
+			    else {
 				  cube.rotation.y -=0.02;
 			      cube1.rotation.y +=0.02;
 			      cube2.rotation.y -=0.02;
 			      cube3.rotation.y +=0.02;
-			    //  objectlogo.rotation.x +=0.01;
+			    };
 
 			      scene.add(objectlogo);
 
