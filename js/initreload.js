@@ -29,80 +29,86 @@ function init() {
     scene = new THREE.Scene();
     sceneGl = new THREE.Scene(); //glscene
 
-    // add light, set color and distance.
-    //var light = new THREE.DirectionalLight(0xfdfdfd, 2);
-    // you set the position of the light and it shines into the origin
-    //light.position.set(300, 300, 300).normalize();
-    //sceneGl.add(light);
-
-    // add ambient light
-    // subtle blue
-    //var ambientLight = new THREE.AmbientLight(0x000022);
-    //sceneGl.add(ambientLight);
-
 
  image.addEventListener('load', function(event) {
 
-
-			      //-1200, 1020, 50
 			      objectlogo.position.x = 00,
 			        objectlogo.position.y = 1520,
 			        objectlogo.position.z = -500;
 			        objectlogo.rotation.x +=0.01;
 			      scene.add(objectlogo);
-
 			      objects.push(objectlogo);
-
 
 			  }, false);
 
+    var boxGeom = new THREE.CubeGeometry(80, 80, 80);//glscene
+    var texture = new THREE.TextureLoader().load( 'kube1.jpg' );//glscene
 
+    var boxGeom1 = new THREE.CubeGeometry(80, 80, 80);//glscene
+    var texture1 = new THREE.TextureLoader().load( 'kube2.jpg' );//glscene
 
+    var boxGeom2 = new THREE.CubeGeometry(80, 80, 80);//glscene
+    var texture2 = new THREE.TextureLoader().load( 'kube3.jpg' );//glscene
 
-    var boxGeom = new THREE.CubeGeometry(60, 60, 60);//glscene
-    var texture = new THREE.TextureLoader().load( 'kube.jpg' );//glscene
+    var boxGeom3 = new THREE.CubeGeometry(80, 80, 80);//glscene
+    var texture3 = new THREE.TextureLoader().load( 'kube4.jpg' );//glscene
 
-	//var boxGeom = new THREE.BoxBufferGeometry( 100, 100, 100 );//glscene
-	var material = new THREE.MeshBasicMaterial( { map: texture, opacity: 0.5} );//glscene
-	material.transparent = true;
+	var material = new THREE.MeshBasicMaterial( { map: texture, opacity: 0.7} );//glscene
+	material.transparent = false;
+
+    var material1 = new THREE.MeshBasicMaterial( { map: texture1, opacity: 0.7} );//glscene
+	material1.transparent = false;
+
+	var material2 = new THREE.MeshBasicMaterial( { map: texture2, opacity: 0.7} );//glscene
+    material2.transparent = false;
+
+    var material3 = new THREE.MeshBasicMaterial( { map: texture3, opacity: 0.7} );//glscene
+    material3.transparent = false;
+
 
 	cube = new THREE.Mesh( boxGeom, material );//glscene
-    cube.position.copy(new THREE.Vector3(-1200, 1020, 50));//glscene
+    cube.position.copy(new THREE.Vector3(-1210, 1060, 50));//glscene
+
+	cube1 = new THREE.Mesh( boxGeom1, material1 );//glscene
+    cube1.position.copy(new THREE.Vector3(-1120, 1060, 50));//glscene
+
+    cube2 = new THREE.Mesh( boxGeom2, material2 );//glscene
+    cube2.position.copy(new THREE.Vector3(-1210, 970, 50));//glscene
+
+    cube3 = new THREE.Mesh( boxGeom3, material3 );//glscene
+    cube3.position.copy(new THREE.Vector3(-1120, 970, 50));//glscene
+
+
     //cube.rotation.copy(Math.PI / 6);//glscene
 
 
 
     sceneGl.add(cube);//glscene
+    sceneGl.add(cube1);//glscene
+    sceneGl.add(cube2);//glscene
+    sceneGl.add(cube3);//glscene
     rendererGl = new THREE.WebGLRenderer({alpha:true});//glscene
     rendererGl.setClearColor(0x00ff00, 0.0);//glscene
 
     rendererGl.setSize(window.innerWidth, window.innerHeight);//glscene
     rendererGl.domElement.style.position = 'absolute';//glscene
-    rendererGl.domElement.style.zIndex = 1;//glscene
+    rendererGl.domElement.style.zIndex = 0;//glscene
     rendererGl.domElement.style.top = 0;//glscene
-   // document.body.appendChild(rendererGl.domElement);
 
-
-    renderer = new THREE.CSS3DRenderer({ antialias: true });
+    renderer = new THREE.CSS3DRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight );
-           //renderer.domElement.appendChild(rendererGl.domElement);//glscene deze regel veroorzaakt selecterenfout
-               // document.getElementById( 'container' ).appendChild( rendererGl.domElement );
-           // document.body.appendChild(renderer.domElement);//glscene
+
+    renderer.domElement.style.top = 0;//glscene
+    renderer.domElement.style.zIndex = 1;
+    document.getElementById( 'container' ).appendChild( rendererGl.domElement );
     document.getElementById( 'container' ).appendChild( renderer.domElement );
-                    //document.getElementById( 'container' ).appendChild( rendererGl.domElement );
+
 
     controls = new THREE.TrackballControls( camera, renderer.domElement );
     controls.rotateSpeed = 0.5;
     controls.minDistance = 500;
     controls.maxDistance = 6000;
     controls.addEventListener( 'change', render );
-
-
-
-
-
-
-
 
     var button = document.getElementById( 'refresh' );
     button.addEventListener( 'click', function () {
@@ -225,12 +231,6 @@ function init() {
                   }
 
         }, false );
-
-
-
-
-
-
 
     window.addEventListener( 'resize', onWindowResize, false );
 }

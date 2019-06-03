@@ -77,8 +77,8 @@ function loadnodes() {
                     detail12.innerHTML = jsonPath(response , "$.metadata.selfLink");
                     detail10.innerHTML = 'Open spec';
                     detail11.innerHTML = '';
-                    addreplica.innerHTML = '';
-                    reducereplica.innerHTML = '';
+                    detail13.innerHTML = '';
+                    detail14.innerHTML = '';
 
                 }
             }
