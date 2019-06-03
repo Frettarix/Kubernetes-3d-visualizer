@@ -115,9 +115,10 @@
 			      scene.add(objectlogo);
 
 			      objects.push(objectlogo);
+			      				rendererGl.render(sceneGl, camera);
 				renderer.render( scene, camera );
 
-				//rendererGl.render(sceneGl, camera);
+
 			}
 			
 			var intervalID = window.setInterval(myRefresh, 1000);
@@ -133,6 +134,8 @@
 				podinfo.splice(0, podinfo.length)
 				replicaset.splice(0, replicaset.length)
 				deployment.splice(0, deployment.length)
+
+
 			}
 
 		</script>

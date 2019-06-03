@@ -25,6 +25,7 @@ Start the HTML.
 
 Update on master:
 2-6-2019: Replica's, deployments and logo added. Also buttons for increasing and decreasing replica's added.
+3-6-2019: webgl also working. See new logo! Instead of putting webgl z index to 1 and CSS3d to 0 turned that around.
 
 Todo:  <br/>
 -Add services to rendering <br/>
@@ -44,4 +45,3 @@ Based on an example from:
 https://threejs.org/examples/css3d_periodictable.html
 
 If you have an idea on dockerizing this then let me know (kubectl sidecar?)!
-Also I have been experimenting with adding GL objects, but did not manage with full functionality (needs seccond GL renderer).

@@ -79,9 +79,7 @@ function loaddeployments() {
         var details = document.createElement( 'div' );
         details.className = 'restarts';
         var podname = document.createElement('podname'); // is a node
-        //podname.className = 'restarts';
-        //podname.align = deployment[ i + 1 ];
-        //podname.detail1 = deployment[ i + 1 ];
+
         details.appendChild(podname)
 
         var mypodrow = document.createElement('mypodrow'); // is a node
