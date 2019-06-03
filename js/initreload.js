@@ -32,8 +32,8 @@ function init() {
 
  image.addEventListener('load', function(event) {
 
-			      objectlogo.position.x = 00,
-			        objectlogo.position.y = 1520,
+			      objectlogo.position.x = 100,
+			        objectlogo.position.y = 1220,
 			        objectlogo.position.z = -500;
 			        objectlogo.rotation.x +=0.01;
 			      scene.add(objectlogo);
@@ -41,17 +41,17 @@ function init() {
 
 			  }, false);
 
-    var boxGeom = new THREE.CubeGeometry(80, 80, 80);//glscene
-    var texture = new THREE.TextureLoader().load( './img/kube1.jpg' );//glscene
+    var boxGeom = new THREE.CubeGeometry(200, 200, 200);//glscene
+    var texture = new THREE.TextureLoader().load( './img/kube1.png' );//glscene
 
-    var boxGeom1 = new THREE.CubeGeometry(80, 80, 80);//glscene
-    var texture1 = new THREE.TextureLoader().load( './img/kube2.jpg' );//glscene
+    var boxGeom1 = new THREE.CubeGeometry(200,200, 200);//glscene
+    var texture1 = new THREE.TextureLoader().load( './img/kube2.png' );//glscene
 
-    var boxGeom2 = new THREE.CubeGeometry(80, 80, 80);//glscene
-    var texture2 = new THREE.TextureLoader().load( './img/kube3.jpg' );//glscene
+    var boxGeom2 = new THREE.CubeGeometry(200,200, 200);//glscene
+    var texture2 = new THREE.TextureLoader().load( './img/kube3.png' );//glscene
 
-    var boxGeom3 = new THREE.CubeGeometry(80, 80, 80);//glscene
-    var texture3 = new THREE.TextureLoader().load( './img/kube4.jpg' );//glscene
+    var boxGeom3 = new THREE.CubeGeometry(200,200, 200);//glscene
+    var texture3 = new THREE.TextureLoader().load( './img/kube4.png' );//glscene
 
 	var material = new THREE.MeshBasicMaterial( { map: texture, opacity: 0.7} );//glscene
 	material.transparent = false;
@@ -67,18 +67,18 @@ function init() {
 
 
 	cube = new THREE.Mesh( boxGeom, material );//glscene
-    cube.position.copy(new THREE.Vector3(-1210, 1060, 50));//glscene
+    cube.position.copy(new THREE.Vector3(-1230, 1230, 50));//glscene
 
 	cube1 = new THREE.Mesh( boxGeom1, material1 );//glscene
-    cube1.position.copy(new THREE.Vector3(-1120, 1060, 50));//glscene
+    cube1.position.copy(new THREE.Vector3(-1020, 1230, 50));//glscene
 
     cube2 = new THREE.Mesh( boxGeom2, material2 );//glscene
-    cube2.position.copy(new THREE.Vector3(-1210, 970, 50));//glscene
+    cube2.position.copy(new THREE.Vector3(-1230,1020, 50));//glscene
 
     cube3 = new THREE.Mesh( boxGeom3, material3 );//glscene
-    cube3.position.copy(new THREE.Vector3(-1120, 970, 50));//glscene
+    cube3.position.copy(new THREE.Vector3(-1020,1020, 50));//glscene
 
-
+//cube1.rotation.x +=0.3;
     //cube.rotation.copy(Math.PI / 6);//glscene
 
 
