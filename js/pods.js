@@ -116,12 +116,33 @@ function loadinfo() {
         element.style.backgroundColor = podinfo[ i + 2 ];
 
         element.addEventListener( 'click', function (event) {
-            if (event.currentTarget.childNodes[2].id != ""){
-                var deleteobject = 'http://localhost:8001/api/v1/namespaces/'+mynamespace+'/pods/'+ event.currentTarget.childNodes[2].id;
-                var xhttp = new XMLHttpRequest();
-                xhttp.open("DELETE", deleteobject, true);
-                xhttp.send();
-            }
+             var xhttp = new XMLHttpRequest();
+                        xhttp.open("GET", "http://localhost:8001/api/v1/namespaces/"+mynamespace+"/pods/"+event.currentTarget.childNodes[2].id, true);
+                        xhttp.send();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                var response = JSON.parse(xhttp.responseText);
+                                //console.log(response);
+                                detail0.innerHTML = "http://localhost:8001/api/v1/namespaces/"+mynamespace+"/pods/" + jsonPath(response , "$.metadata.name");
+                                detail1.innerHTML = 'Podname           : ' + jsonPath(response , "$.metadata.name");
+                                detail2.innerHTML = 'Pod IP            : ' + jsonPath(response , "$.status.podIP");
+                                detail3.innerHTML = 'Podstatus         : ' + jsonPath(response , "$.status.phase");
+                                detail4.innerHTML = 'Images            : ' + jsonPath(response , "$.spec.containers[*].image");
+                                var response5 = jsonPath(response , "$.spec.containers[*].image");
+                                detail5.innerHTML = 'Containers in pod : ' + response5.length;
+                                //var response2 = jsonPath(response , "$.status.phase");
+                                detail6.innerHTML = 'Container restarts: ' +  jsonPath(response ,"$.status.containerStatuses[*].restartCount");
+                                detail7.innerHTML = 'Containers ready  : ' + jsonPath(response , "$.status.containerStatuses[*].ready");
+                                detail8.innerHTML = 'Container ports   : ' + jsonPath(response , "$.spec.containers[*].ports[0].containerPort");
+                                detail9.innerHTML = 'Pod starttime     : ' + jsonPath(response , "$.status.startTime");
+                                detail12.innerHTML = jsonPath(response , "$.metadata.selfLink");
+                                detail10.innerHTML = 'Open spec';
+                                detail11.innerHTML = 'Delete pod';
+                                detail13.innerHTML = '';
+                                detail14.innerHTML = '';
+                            }
+                        }
+
         }, false );
 
         var number = document.createElement( 'div' );
@@ -178,7 +199,7 @@ function loadinfo() {
         element.appendChild( details );
 
         var deletebtn = document.createElement( 'div' );
-        deletebtn.textContent = "delete";
+        deletebtn.textContent = "Select";
         deletebtn.className = 'delete';
         element.appendChild( deletebtn );
 
@@ -196,36 +217,6 @@ function loadinfo() {
 
         objects.push( object );
 
-
-        element.addEventListener( 'mouseover', function () {
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "http://localhost:8001/api/v1/namespaces/"+mynamespace+"/pods/"+event.currentTarget.childNodes[2].id, true);
-            xhttp.send();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var response = JSON.parse(xhttp.responseText);
-                    //console.log(response);
-                    detail0.innerHTML = "http://localhost:8001/api/v1/namespaces/"+mynamespace+"/pods/" + jsonPath(response , "$.metadata.name");
-                    detail1.innerHTML = 'Podname           : ' + jsonPath(response , "$.metadata.name");
-                    detail2.innerHTML = 'Pod IP            : ' + jsonPath(response , "$.status.podIP");
-                    detail3.innerHTML = 'Podstatus         : ' + jsonPath(response , "$.status.phase");
-                    detail4.innerHTML = 'Images            : ' + jsonPath(response , "$.spec.containers[*].image");
-                    var response5 = jsonPath(response , "$.spec.containers[*].image");
-                    detail5.innerHTML = 'Containers in pod : ' + response5.length;
-                    //var response2 = jsonPath(response , "$.status.phase");
-                    detail6.innerHTML = 'Container restarts: ' +  jsonPath(response ,"$.status.containerStatuses[*].restartCount");
-                    detail7.innerHTML = 'Containers ready  : ' + jsonPath(response , "$.status.containerStatuses[*].ready");
-                    detail8.innerHTML = 'Container ports   : ' + jsonPath(response , "$.spec.containers[*].ports[0].containerPort");
-                    detail9.innerHTML = 'Pod starttime     : ' + jsonPath(response , "$.status.startTime");
-                    detail12.innerHTML = jsonPath(response , "$.metadata.selfLink");
-                    detail10.innerHTML = 'Open spec';
-                    detail11.innerHTML = 'Delete pod';
-                    detail13.innerHTML = '';
-                    detail14.innerHTML = '';
-                }
-            }
-
-        }, false );
 
 
     }
