@@ -55,11 +55,31 @@ function loadreplicasets() {
         element.style.backgroundColor = replicaset[ i + 2 ];
 
         element.addEventListener( 'click', function (event) {
-            if (event.currentTarget.childNodes[1].id != ""){
-                var deleteobject = 'http://localhost:8001/apis/apps/v1/namespaces/'+mynamespace+'/replicasets/'+ event.currentTarget.childNodes[1].id;
-                var xhttp = new XMLHttpRequest();
-                xhttp.open("DELETE", deleteobject, true);
-                xhttp.send();
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", 'http://localhost:8001/apis/apps/v1/namespaces/'+mynamespace+'/replicasets/'+ event.currentTarget.childNodes[1].textContent, true);
+            xhttp.send();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(xhttp.responseText);
+                    //console.log(response);
+                    detail0.innerHTML = "http://localhost:8001/apis/apps/v1/namespaces/'+mynamespace+'/replicasets/" + jsonPath(response , "$.metadata.name");
+                    detail1.innerHTML = jsonPath(response , "$.metadata.name");
+                    detail2.innerHTML = 'Replicas          : ' + jsonPath(response , "$.spec.replicas");
+                    detail3.innerHTML = 'Readystatus       : ' + jsonPath(response , "$.status.readyReplicas");
+                    detail4.innerHTML = 'Version            : ' + jsonPath(response , "$.metadata.labels.version");
+                    var response5 = '';
+                    detail5.innerHTML = jsonPath(response , "$.spec.replicas");
+                    //var response2 = jsonPath(response , "$.status.phase");
+                    detail6.innerHTML = '';
+                    detail7.innerHTML = '';
+                    detail8.innerHTML = 'Add replica';
+                    detail9.innerHTML = 'Reduce replica';
+                    detail12.innerHTML = jsonPath(response , "$.metadata.selfLink");
+                    detail10.innerHTML = 'Open spec';
+                    detail11.innerHTML = ''; //don't delete replicasets from here
+                    detail13.innerHTML = ' ';
+                    detail14.innerHTML = ' ';
+                }
             }
         }, false );
 
@@ -117,7 +137,7 @@ function loadreplicasets() {
         element.appendChild( details );
 
         var deletebtn = document.createElement( 'div' );
-        deletebtn.textContent = "delete";
+        deletebtn.textContent = "Select";
         deletebtn.className = 'delete';
         element.appendChild( deletebtn );
 
@@ -136,35 +156,7 @@ function loadreplicasets() {
         objects.push( object );
 
 
-        element.addEventListener( 'mouseover', function () {
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", 'http://localhost:8001/apis/apps/v1/namespaces/'+mynamespace+'/replicasets/'+ event.currentTarget.childNodes[1].textContent, true);
-            xhttp.send();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var response = JSON.parse(xhttp.responseText);
-                    //console.log(response);
-                    detail0.innerHTML = "http://localhost:8001/apis/apps/v1/namespaces/'+mynamespace+'/replicasets/" + jsonPath(response , "$.metadata.name");
-                    detail1.innerHTML = jsonPath(response , "$.metadata.name");
-                    detail2.innerHTML = 'Replicas          : ' + jsonPath(response , "$.spec.replicas");
-                    detail3.innerHTML = 'Readystatus       : ' + jsonPath(response , "$.status.readyReplicas");
-                    detail4.innerHTML = 'Version            : ' + jsonPath(response , "$.metadata.labels.version");
-                    var response5 = '';
-                    detail5.innerHTML = jsonPath(response , "$.spec.replicas");
-                    //var response2 = jsonPath(response , "$.status.phase");
-                    detail6.innerHTML = '';
-                    detail7.innerHTML = '';
-                    detail8.innerHTML = 'Add replica';
-                    detail9.innerHTML = 'Reduce replica';
-                    detail12.innerHTML = jsonPath(response , "$.metadata.selfLink");
-                    detail10.innerHTML = 'Open spec';
-                    detail11.innerHTML = 'Delete Replicaset';
-                    detail13.innerHTML = ' ';
-                    detail14.innerHTML = ' ';
-                }
-            }
 
-        }, false );
 
 
     }

@@ -41,8 +41,8 @@ function init() {
 
 			  }, false);
 
-    var boxGeom = new THREE.CubeGeometry(200, 200, 200);//glscene
-    var texture = new THREE.TextureLoader().load( './img/kube1.png' );//glscene
+    var boxGeom = new THREE.CubeGeometry(300, 300, 300);//glscene
+    var texture = new THREE.TextureLoader().load( './img/Kubernetes.png' );//glscene
 
     var boxGeom1 = new THREE.CubeGeometry(200,200, 200);//glscene
     var texture1 = new THREE.TextureLoader().load( './img/kube2.png' );//glscene
@@ -67,7 +67,7 @@ function init() {
 
 
 	cube = new THREE.Mesh( boxGeom, material );//glscene
-    cube.position.copy(new THREE.Vector3(-1260, 1260, 50));//glscene
+    cube.position.copy(new THREE.Vector3(-1060, 1060, 50));//glscene
 
 	cube1 = new THREE.Mesh( boxGeom1, material1 );//glscene
     cube1.position.copy(new THREE.Vector3(-1020, 1260, 50));//glscene
@@ -84,9 +84,9 @@ function init() {
 
 
     sceneGl.add(cube);//glscene
-    sceneGl.add(cube1);//glscene
-    sceneGl.add(cube2);//glscene
-    sceneGl.add(cube3);//glscene
+    //sceneGl.add(cube1);//glscene
+    //sceneGl.add(cube2);//glscene
+    //sceneGl.add(cube3);//glscene
     rendererGl = new THREE.WebGLRenderer({alpha:true});//glscene
     rendererGl.setClearColor(0x00ff00, 0.0);//glscene
 
@@ -128,11 +128,13 @@ function init() {
 
     var button = document.getElementById( 'detail11' );
     button.addEventListener( 'click', function () {
-                var deleteobject = "http://localhost:8001" + detail12.innerHTML;
-                var xhttp = new XMLHttpRequest();
-                xhttp.open("DELETE", deleteobject, true);
-                xhttp.send();
-
+                if (detail11.innerHTML=='Delete pod')
+                {
+                   var deleteobject = "http://localhost:8001" + detail12.innerHTML;
+                   var xhttp = new XMLHttpRequest();
+                   xhttp.open("DELETE", deleteobject, true);
+                   xhttp.send();
+                }
     }, false );
 
     var buttonadd = document.getElementById( 'detail13' );
